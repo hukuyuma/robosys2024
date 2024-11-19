@@ -8,26 +8,28 @@ def tonum(s):
     try:
         return int(s)
     except ValueError:
-        try:
-            return float(s)
-        except ValueError:
-            return None  # 無効な場合は None を返す
+        return float(s)
 
 ans = 0
+count = 0
 
-print("数値を入力してください（終了するには Ctrl+D などで標準入力を終了）。")
+# テスト時に標準入力が与えられている場合にのみメッセージを表示
+if not sys.stdin.isatty():
+    print("数値を入力してください（終了するには Ctrl+D などで標準入力を終了）。")
 
 for line in sys.stdin:
     line = line.rstrip()
-   
-    if line == "":  # 空行をスキップ
-        continue
-   
+    if line.lower() == "exit":
+        break
     num = tonum(line)
-    if num is None:  # 無効な入力をスキップ
+    if num is None:
         print(f"警告: '{line}' は無効な入力です。数値を入力してください。")
         continue
-   
     ans += num
+    count += 1
 
-print(f"合計: {ans}")
+if count > 0:
+    average = ans / count
+    print(f"合計: {ans}, 平均: {average}")
+else:
+    print("有効な入力がありませんでした。")
