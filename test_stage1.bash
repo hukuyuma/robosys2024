@@ -2,21 +2,30 @@
 # SPDX-FileCopyrightText: 2024 Yuma Fukuya
 # SPDX-License-Identifier: BSD-3-Clause
 
-import subprocess
+# テスト対象のスクリプト
+SCRIPT="./plus"
 
-def test_stage1():
-    input_data = "3\n7\n10\n"
-    expected_output = "合計: 20\n"
-   
-    # プログラムを実行して結果を比較
-    result = subprocess.run(
-        ["python3", "stage1.py"],  # 実行するスクリプト名を指定
-        input=input_data,
-        text=True,
-        capture_output=True
-    )
-   
-    assert result.stdout.strip() == expected_output.strip(), f"期待: {expected_output} 実際: {result.stdout}"
+# 入力データ
+INPUT="3\n7\n10\n"
 
-test_stage1()
-print("Stage 1: テスト成功！")
+# 期待される出力
+EXPECTED_OUTPUT="合計: 20"
+
+# 実際にスクリプトを実行して出力を取得
+if [ -f "$SCRIPT" ]; then
+    ACTUAL_OUTPUT=$(echo -e "$INPUT" | python3 "$SCRIPT")
+else
+    echo "エラー: $SCRIPT が見つかりません。"
+    exit 1
+fi
+
+# テスト結果を確認
+if [ "$ACTUAL_OUTPUT" == "$EXPECTED_OUTPUT" ]; then
+    echo "テスト成功！"
+    exit 0
+else
+    echo "テスト失敗！"
+    echo "期待される出力: $EXPECTED_OUTPUT"
+    echo "実際の出力: $ACTUAL_OUTPUT"
+    exit 1
+fi

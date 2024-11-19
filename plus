@@ -1,13 +1,17 @@
 #!/usr/bin/python3
 # SPDX-FileCopyrightText: 2024 Yuma Fukuya
 # SPDX-License-Identifier: BSD-3-Clause
+
 import sys
 
 def tonum(s):
     try:
         return int(s)
     except ValueError:
-        return float(s)
+        try:
+            return float(s)
+        except ValueError:
+            return None  # 無効な場合は None を返す
 
 ans = 0
 
@@ -15,7 +19,16 @@ print("数値を入力してください（終了するには Ctrl+D などで�
 
 for line in sys.stdin:
     line = line.rstrip()
-    ans += tonum(line)
+
+    if line == "":  # 空行をスキップ
+        continue
+
+    num = tonum(line)
+    if num is None:  # 無効な入力をスキップ
+        print(f"警告: '{line}' は無効な入力です。数値を入力してください。")
+        continue
+
+    ans += num
 
 print(f"合計: {ans}")
 
