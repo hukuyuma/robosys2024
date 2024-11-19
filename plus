@@ -15,23 +15,19 @@ def tonum(s):
 
 ans = 0
 
-# テストの場合、最初のメッセージを表示しない
-# 「標準入力の受付開始のメッセージ」をテスト環境で非表示にするため削除
-if not sys.stdout.isatty():  # 標準出力が端末でない場合（テスト時）
-    # プロンプトメッセージを削除
-    pass
+print("数値を入力してください（終了するには Ctrl+D などで標準入力を終了）。")
 
 for line in sys.stdin:
     line = line.rstrip()
-
+   
     if line == "":  # 空行をスキップ
         continue
-
+   
     num = tonum(line)
     if num is None:  # 無効な入力をスキップ
         print(f"警告: '{line}' は無効な入力です。数値を入力してください。")
         continue
-
+   
     ans += num
 
 print(f"合計: {ans}")
