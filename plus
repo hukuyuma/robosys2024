@@ -11,13 +11,11 @@ def tonum(s):
 
 ans = 0
 
-print("数値を入力してください（終了するには Ctrl+D などで標準入力を終了）。")
-
 for line in sys.stdin:
     line = line.rstrip()
     ans += tonum(line)
 
-print(f"合計: {ans}")
+print(ans)  # 合計のみを出力
 
 
 
