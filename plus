@@ -6,16 +6,18 @@ import sys
 def tonum(s):
     try:
         return int(s)
-    except:
+    except ValueError:
         return float(s)
 
+ans = 0
 
-ans = 0 
+print("数値を入力してください（終了するには Ctrl+D などで標準入力を終了）。")
+
 for line in sys.stdin:
     line = line.rstrip()
     ans += tonum(line)
 
-print(ans)
+print(f"合計: {ans}")
 
 
 
