@@ -8,17 +8,22 @@ def tonum(s):
     try:
         return int(s)
     except ValueError:
-        return float(s)
+        try:
+            return float(s)
+        except ValueError:
+            return None  # 無効な入力は None を返す
 
 ans = 0
 count = 0
 
-# テスト時に標準入力が与えられている場合にのみメッセージを表示
+# 標準入力がターミナルかどうかをチェック
 if not sys.stdin.isatty():
     print("数値を入力してください（終了するには Ctrl+D などで標準入力を終了）。")
 
 for line in sys.stdin:
-    line = line.rstrip()
+    line = line.strip()
+    if not line:  # 空行を無視
+        continue
     if line.lower() == "exit":
         break
     num = tonum(line)
@@ -30,6 +35,6 @@ for line in sys.stdin:
 
 if count > 0:
     average = ans / count
-    print(f"合計: {ans}, 平均: {average}")
+    print(f"合計: {ans}")
 else:
     print("有効な入力がありませんでした。")
