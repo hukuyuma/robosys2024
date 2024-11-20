@@ -1,4 +1,4 @@
-# plusコマンド,total averageコマンド
+# plusコマンド,averageコマンド
 
 ![test](https://github.com/hukuyuma/robosys2024/actions/workflows/test.yml/badge.svg)
 
@@ -29,11 +29,11 @@
 - © 2024 Yuma Fukuya
 
 ##その他について
-今回最終的にplusというファイルに上記の機能が使えるような
+今回最終的にaverageというファイルに上記の機能が使えるような
 プログラムが入っている。
-plusというプログラムを書くにあたってplusというプログラムが
-完成するまでに３つのテストを作り、それぞれ順番に
+averageというプログラムを書くにあたってaverageという
+プログラムが完成するまでに３つのテストを作り、それぞれ順番に
 test_stage1.bash、test_stage2.bash、test_stage3.bash
 の順番でテストを行っている。
-test_stage3.bashは最終的に完成したplusというプログラム
+test_stage3.bashは最終的に完成したaverageというプログラム
 全体に対してのテストである。
