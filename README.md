@@ -15,15 +15,24 @@
 '入力したアルファベット'は無効な入力です。数値を入力してください。
 と表示される。
 
+## ダウンロード方法
+以下の手順でプロジェクトをローカル環境にダウンロードしてください。
+
+リポジトリをクローン
+git clone https://github.com/hukuyuma/robosys2024/
+
+ディレクトリに移動
+cd robosys2024
+
 ## 必要なソフトウェア
 - Python
+  - テスト済みバージョン：3.7～3.10
 
 ## テスト環境
-- Ubuntu
+- Ubuntu 20.04 on Windows
 
 ##著作権、ライセンスについて
 - このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
-- このパッケージは，aaa由来のコード（© 2022 Hoge Fuge）を利用しています．
 - このパッケージのコードは，下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを，本人の許可を得て参考にしたものです．
     - [ryuichiueda/my_slides robosys_2022](https://github.com/ryuichiueda/my_slides/tree/master/robosys_2022)
 - © 2024 Yuma Fukuya
