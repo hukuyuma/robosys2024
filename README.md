@@ -18,11 +18,13 @@
 ## ダウンロード方法
 以下の手順でプロジェクトをローカル環境にダウンロードしてください。
 
+```bash
 リポジトリをクローン
 git clone https://github.com/hukuyuma/robosys2024/
 
 ディレクトリに移動
 cd robosys2024
+```
 
 ## 必要なソフトウェア
 - Python
@@ -31,13 +33,13 @@ cd robosys2024
 ## テスト環境
 - Ubuntu 20.04 on Windows
 
-##著作権、ライセンスについて
+## 著作権、ライセンスについて
 - このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
 - このパッケージのコードは，下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを，本人の許可を得て参考にしたものです．
     - [ryuichiueda/my_slides robosys_2022](https://github.com/ryuichiueda/my_slides/tree/master/robosys_2022)
 - © 2024 Yuma Fukuya
 
-##その他について
+## その他について
 今回最終的にaverageというファイルに上記の機能が使えるような
 プログラムが入っている。
 averageというプログラムを書くにあたってaverageという
