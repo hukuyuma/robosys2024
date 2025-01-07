@@ -17,8 +17,5 @@ jobs:
     - name: Verify Python Version
       run: python3 --version
 
-    - name: Make average executable
-      run: chmod +x average
-
     - name: Run All Tests
-      run: ./test.bash
+      run: bash ./test.bash
