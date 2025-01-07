@@ -1,28 +1,47 @@
-#!/bin/bash
+#!/usr/bin/python3
+import subprocess
 
-# テスト入力
-input_data="5\n3\nexit\n"
+def run_test(test_input, expected_output):
+    """`average` プログラムをテストする関数"""
+    process = subprocess.Popen(
+        ["python3", "average"],
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True
+    )
+    stdout, stderr = process.communicate(input=test_input)
 
-# 期待される出力
-expected_output="合計: 8, 平均: 4.0"
+    # 標準エラーが出力されていないかチェック
+    assert stderr == "", f"エラー発生: {stderr}"
 
-# 実行結果を取得
-result=$(echo -e "$input_data" | ./plus)
+    # 出力結果を確認
+    assert expected_output in stdout, f"期待された出力: {expected_output}\n実際の出力: {stdout}"
 
-# 実際の出力を表示
-echo "実際の出力:"
-echo "$result"
+# テストケース
+tests = [
+    {
+        "input": "10\n20\n30\nexit\n",
+        "expected": "合計: 60, 平均: 20.0"
+    },
+    {
+        "input": "1.5\n2.5\nexit\n",
+        "expected": "合計: 4.0, 平均: 2.0"
+    },
+    {
+        "input": "10\nabc\n20\nexit\n",
+        "expected": "警告: 'abc' は無効な入力です。数値を入力してください。\n合計: 30, 平均: 15.0"
+    },
+    {
+        "input": "exit\n",
+        "expected": "有効な入力がありませんでした。"
+    }
+]
 
-# 実際の出力から合計と平均を抽出
-filtered_result=$(echo "$result" | grep -E '合計')
-
-# 結果を比較
-if [[ "$filtered_result" == "$expected_output" ]]; then
-    echo "Stage 3: テスト成功！"
-else
-    echo "Stage 3: テスト失敗！"
-    echo "期待される出力:"
-    echo "$expected_output"
-    echo "実際の出力:"
-    echo "$filtered_result"
-fi
+# テスト実行
+for i, test in enumerate(tests, 1):
+    try:
+        run_test(test["input"], test["expected"])
+        print(f"テストケース {i} 成功")
+    except AssertionError as e:
+        print(f"テストケース {i} 失敗: {e}")
