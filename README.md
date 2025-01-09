@@ -33,7 +33,8 @@ exit
 ```
 
 ## 必要なソフトウェア
-- Python3
+- Python
+  - テスト済み: 3.7~3.10
 
 ## テスト環境
 - Ubuntu 20.04 on Windows
