@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+# SPDX-FileCopyrightText: 2024 Yuma Fukuya
+# SPDX-License-Identifier: BSD-3-Clause
+
 import subprocess
 
 def run_test(test_input, expected_output):
