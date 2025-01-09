@@ -1,21 +1,9 @@
 name: test
-
 on: push
-
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
-
-    - name: Set up Python 3.7
-      uses: actions/setup-python@v4
-      with:
-        python-version: "3.7"
-
-    - name: Verify Python Version
-      run: python3 --version
-
-    - name: Run All Tests
-      run: bash ./test.bash
+    - name: All test
+      run: bash -xv ./test.bash
