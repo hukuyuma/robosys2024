@@ -2,7 +2,6 @@
 
 ![test](https://github.com/hukuyuma/robosys2024/actions/workflows/test.yml/badge.svg)
 
-## 何をするためのソフトか。
 標準入力から読み込んだ数字を足して、その平均を出す。
 
 ## 主な機能について
@@ -22,6 +21,7 @@ git clone https://github.com/hukuyuma/robosys2024/
 ディレクトリに移動
 cd robosys2024
 ```
+
 ## 実行例
 ```bash
 数値を入力してください（終了するには 'exit' と入力）。
